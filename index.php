@@ -3,6 +3,7 @@
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
+ * Jason Kim add
  *---------------------------------------------------------------
  *
  * You can load different configurations depending on your
