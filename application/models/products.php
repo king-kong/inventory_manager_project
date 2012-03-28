@@ -9,8 +9,9 @@ class Products extends CI_Model {
     {
         // Call the Model constructor
         parent::__construct();
-		$this->load->database();
-    }
+		$this->load->database('onzenit');
+    
+	}
 	
 	function get_products()
 	{
