@@ -1,8 +1,8 @@
-<html>
+<<html>
 	<head>
-		<title>Home</title>
+		<title>ADD</title>
 	</head>
-		<body>
+	<body>
 		<?php
 
 		echo "<table border='1'>\n";
@@ -18,9 +18,16 @@
 			echo "</tr>\n";
 		}
 		echo "</table>";
+		
+		//Form
+		echo "<br/>";
+		echo form_open('home/add');
+		echo "id: " . form_input('id');
 		echo "<br />";
-		echo "<a href='index.php/home/add'>add</a><br />";
-		echo "<a href='index.php/home/delete'>delete</a>";
+		echo form_submit('submit', 'Submit');
+		echo form_close();
+		echo "<br />";
+		echo "<a href='".base_url()."'>home</a>";
 	?>
 	</body>
 </html>
