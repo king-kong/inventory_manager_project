@@ -18,6 +18,7 @@ class Home extends CI_Controller {
 	}
 	
 	public function xml(){
+		$this->output->set_header("Content-Type: text/xml");
 		$this->load->helper('xml');
 		$data['var1'] = $this->products->get_products();
 		$this->load->view('xml', $data);
