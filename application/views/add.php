@@ -23,6 +23,8 @@
 		echo "<br/>";
 		echo form_open('home/add');
 		echo "id: " . form_input('id');
+		echo "name: " . form_input('name');
+		echo "cost: " . form_input('cost');
 		echo "<br />";
 		echo form_submit('submit', 'Submit');
 		echo form_close();

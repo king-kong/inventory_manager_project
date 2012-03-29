@@ -32,11 +32,23 @@ class Home extends CI_Controller {
 		$this -> load -> view('delete', $data);
 
 	}
-
+	
 	public function add() {
-		#$data['var1'] = $this->products->get_products();``
-		#$this->load->view('home',$data);
+		$errorMessage = "";
+		if ($input = $this -> input -> post()) {
+			//try {
+				$this -> products -> add_product($input);
+			//} catch (InvalidInputException $e) {
+			//	$errorMessage = $e->getMessage();
+			//}
+		}
+		
+		$data['error'] = $errorMessage;
+		$data['var1'] = $this->products->get_products();
+		$this -> load -> view('add', $data);
 
 	}
+
+	
 
 }
