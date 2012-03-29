@@ -12,7 +12,7 @@
 			echo "<tr>";
 
 			foreach ($row as $v) {
-				echo "<td>" . xml_convert($v) . "</td>";
+				echo "<td>" . $v . "</td>";
 			}
 			#echo "<td><a href='index.php/home/delete/".$row['id']."'>delete</a></td>";
 			echo "</tr>\n";
@@ -20,7 +20,7 @@
 		echo "</table>";
 		echo "<br />";
 		echo "<a href='index.php/home/add'>add</a><br />";
-		echo "<a href='index.php/home/delete'>delete</a>";
+		echo "<a href='index.php/home/delete'>delete</a><br />";
 		echo "<a href='index.php/home/xml'>display xml</a>";
 	?>
 	</body>
