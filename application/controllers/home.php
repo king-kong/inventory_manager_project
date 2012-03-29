@@ -16,6 +16,12 @@ class Home extends CI_Controller {
 		$this -> load -> view('home', $data);
 
 	}
+	
+	public function xml(){
+		$this->load->helper('xml');
+		$data['var1'] = $this->products->get_products();
+		$this->load->view('xml', $data);
+	}
 
 	public function delete() {
 
