@@ -20,7 +20,8 @@
 		echo "</table>";
 		echo "<br />";
 		echo "<a href='index.php/home/add'>add</a><br />";
-		echo "<a href='index.php/home/delete'>delete</a>";
+		echo "<a href='index.php/home/delete'>delete</a><br />";
+		echo "<a href='index.php/home/xml'>display xml</a>";
 	?>
 	</body>
 </html>
