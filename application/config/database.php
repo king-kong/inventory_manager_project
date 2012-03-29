@@ -46,6 +46,7 @@
 */
 
 $active_group = 'default';
+$active_group = 'onzenit';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '142.204.140.203';
@@ -63,6 +64,22 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+$db['onzenit']['hostname'] = 'db-mysql.zenit';
+$db['onzenit']['username'] = 'uli705_121a03';
+$db['onzenit']['password'] = 'faWQ5326';
+$db['onzenit']['database'] = 'uli705_121a03';
+$db['onzenit']['dbdriver'] = 'mysql';
+$db['onzenit']['dbprefix'] = '';
+$db['onzenit']['pconnect'] = TRUE;
+$db['onzenit']['db_debug'] = TRUE;
+$db['onzenit']['cache_on'] = FALSE;
+$db['onzenit']['cachedir'] = '';
+$db['onzenit']['char_set'] = 'utf8';
+$db['onzenit']['dbcollat'] = 'utf8_general_ci';
+$db['onzenit']['swap_pre'] = '';
+$db['onzenit']['autoinit'] = TRUE;
+$db['onzenit']['stricton'] = FALSE;
 
 
 
