@@ -7,8 +7,11 @@
  * APPLICATION ENVIRONMENT
  * Jason Add 2
  * Robert add blah
+<<<<<<< HEAD
+ * JASON ENJOY!!!
+=======
  * Robert add blah2s
- * Jason enjoy
+>>>>>>> 3727f61fdcbd47194fa27df6ab1d210cfe253390
  *---------------------------------------------------------------
  *
  * You can load different configurations depending on your
