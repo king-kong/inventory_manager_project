@@ -7,6 +7,7 @@ class Products extends CI_Model {
     var $id   = 0;
     var $name = '';
 	var $cost = 0;
+	var $quantity = '';
 	
     function __construct()
     {
@@ -28,7 +29,7 @@ class Products extends CI_Model {
 		
 		//check if id is valid
 		if(strlen($id) != 6){
-			throw new InvalidInputException('Product ID: Must have 6 numbers');
+			throw new InvalidInputException('Product ID: Must have 6 characters');
 		} elseif (!preg_match("/[0-9]{6}/", $id)) {
 			throw new InvalidInputException('Product ID: Must be numeric');
 		}
@@ -73,12 +74,6 @@ class Products extends CI_Model {
 		$this->db->insert('products');
 		
 	}
-	
-	
-	
-	
-	
-	
 	
 }
 

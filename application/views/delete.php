@@ -1,21 +1,8 @@
-<html>
-	<head>
-		<title>Delete</title>
-		
-        <script>
-           <?php if ($error !== "")
-             {
-               echo "alert('". $error. "');";
-			 }
-           ;
-           ?>
-        </script>
-	</head>
-	<body>
+
 		<?php
 
 		echo "<table border='1'>\n";
-		echo "<tr><th>id</th><th>name</th><th>cost</th></tr>\n";
+	echo "<tr><th>id</th><th>name</th><th>cost</th><th>quantity</th></tr>\n";
 
 		foreach ($var1 as $row) {
 			echo "<tr>";
@@ -42,5 +29,3 @@
 		echo "<br />";
 		echo "<a href='".base_url()."'>home</a>";
 	?>
-	</body>
-</html>
