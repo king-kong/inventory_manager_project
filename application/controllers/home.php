@@ -12,14 +12,17 @@ class Home extends CI_Controller {
 	}
 
 	public function index() {
-		$data['var1'] = $this -> products -> get_products();
+
+		$hdata['var1'] = $this -> products -> get_products();
 
 		$hdata['error'] = "";
-		$hdata['title'] = "home";
+		$hdata['title'] = "Home";
+
+		$fdata['title'] = "Home";
 
 		$this -> load -> view('header', $hdata);
-		$this -> load -> view('home', $data);
-		$this -> load -> view('footer');
+		$this -> load -> view('home');
+		$this -> load -> view('footer', $fdata);
 
 	}
 
@@ -33,21 +36,27 @@ class Home extends CI_Controller {
 	public function delete() {
 
 		$errorMessage = "";
+		$successMessage = "";
 		if ($input = $this -> input -> post('id')) {
 			try {
 				$this -> products -> delete_product($input);
+				$successMessage = "Product #".$this->input->post('id').' Deleted!';
 			} catch (InvalidInputException $e) {
 				$errorMessage = $e -> getMessage();
 			}
 		}
 		$hdata['error'] = $errorMessage;
-		$hdata['title'] = "delete";
+		$hdata['success'] = $successMessage;
+		$hdata['title'] = "Delete";
+		$hdata['var1'] = $this -> products -> get_products();
+
 		$data['error'] = $errorMessage;
-		$data['var1'] = $this -> products -> get_products();
+
+		$fdata['title'] = "Delete";
 
 		$this -> load -> view('header', $hdata);
 		$this -> load -> view('delete', $data);
-		$this -> load -> view('footer');
+		$this -> load -> view('footer', $fdata);
 
 	}
 
