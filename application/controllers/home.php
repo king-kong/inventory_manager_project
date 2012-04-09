@@ -43,11 +43,11 @@ class Home extends CI_Controller {
 	public function add() {
 		$errorMessage = "";
 		if ($input = $this -> input -> post()) {
-			//try {
+			try {
 				$this -> products -> add_product($input);
-			//} catch (InvalidInputException $e) {
-			//	$errorMessage = $e->getMessage();
-			//}
+			} catch (InvalidInputException $e) {
+				$errorMessage = $e->getMessage();
+			}
 		}
 		
 		$data['error'] = $errorMessage;

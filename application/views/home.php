@@ -6,7 +6,7 @@
 		<?php
 
 		echo "<table border='1'>\n";
-		echo "<tr><th>id</th><th>name</th><th>cost</th></tr>\n";
+		echo "<tr><th>id</th><th>name</th><th>cost</th><th>quantity</th></tr>\n";
 
 		foreach ($var1 as $row) {
 			echo "<tr>";
