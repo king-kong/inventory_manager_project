@@ -4,9 +4,10 @@
 class InvalidInputException extends Exception{};
 class Products extends CI_Model {
 
-    var $id  = 0;
+    var $id   = 0;
     var $name = '';
 	var $cost = 0;
+	var $quantity = '';
 	
     function __construct()
     {
@@ -25,9 +26,12 @@ class Products extends CI_Model {
 	
 	function delete_product($id)
 	{
+		
 		//check if id is valid
+		
+		$id = trim($id);
 		if(strlen($id) != 6){
-			throw new InvalidInputException('Product ID: Must have 6 numbers');
+			throw new InvalidInputException('Product ID: Must have 6 characters');
 		} elseif (!preg_match("/[0-9]{6}/", $id)) {
 			throw new InvalidInputException('Product ID: Must be numeric');
 		}
@@ -39,18 +43,30 @@ class Products extends CI_Model {
 		{
 			throw new InvalidInputException('Product ID: Must exist in database');
 		}
+		
+		
+		//delete the row
+		$this->db->where('id', $id);
+		$result = $this->db->delete('products');
+		
+		if (!$result){
+			
+			throw new InvalidInputException('Product could not be deleted from the database');			
+		}
+		
+		
 	}
 	
 	public function add_product($input) {
-		$id = $input['id'];
-		$name = $input['name'];
-		$quantity = $input['quantity'];
-		$cost = $input['cost'];
+		$id = trim($input['id']);
+		$name = trim($input['name']);
+		$quantity = trim($input['quantity']);
+		$cost = trim($input['cost']);
 			
 		//check if id is valid
 		if(strlen($id) == 0)
 		{
-			throw new InvalidInputException('Product ID: Must input');
+			throw new InvalidInputException('Product ID: Cannot be blank');
 		}
 		elseif(strlen($id) != 6){
 			throw new InvalidInputException('Product ID: Must have 6 numbers');
@@ -70,7 +86,7 @@ class Products extends CI_Model {
 		//check if name is valid
 		if(strlen($name) == 0)
 		{
-			throw new InvalidInputException('Product Name: Must input');
+			throw new InvalidInputException('Product Name: Cannot be blank');
 		}
 		elseif(strlen($name) > 50)
 		{	
@@ -80,13 +96,13 @@ class Products extends CI_Model {
 		//check if quantity is valid
 		if(strlen($quantity) == 0) 
 		{
-			throw new InvalidInputException('Product Quantity: Must input ');
+			throw new InvalidInputException('Product Quantity: Cannot be blank');
 		}
-		elseif(strlen($quantity) > 4)
+		elseif(strlen(intval($quantity)) > 6)
 		{
-			throw new InvalidInputException('Product Quantity: Must be less than 4');
+			throw new InvalidInputException('Product Quantity: Must be less than 6 digits');
 		}
-		elseif (!preg_match('/^[0-9]+$/', $quantity)) 
+		elseif (!preg_match('/^[0-9]+(\.0*)?$/', $quantity)) 
 		{
 			throw new InvalidInputException('Product Quantity: Must be a +ve number and fractional qty not allowed');
 		} 
@@ -94,10 +110,10 @@ class Products extends CI_Model {
 		//check if cost is valid
 		if(strlen($cost) == 0)
 		{
-			$errorMessages[] = "Product Cost: Must input Cost";
+			$errorMessages[] = "Product Cost: Cannot be blank";
 			throw new InvalidInputException('Product Cost: Must input numeric');
 		}
-		elseif (preg_match('/^[0-9]+$/', $cost))
+		elseif (preg_match('/^[0-9]+\.?$/', $cost))
 		{
 			$cost = $cost.".00";
 		}
@@ -119,10 +135,6 @@ class Products extends CI_Model {
 		if(!$result)
 		{
 			throw new InvalidInputException('Error in adding record');
-		}
-		else
-		{
-			throw new InvalidInputException("Record for ID [".$id."] added successfully!");
 		}
 	
 	}

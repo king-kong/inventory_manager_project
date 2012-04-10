@@ -1,0 +1,48 @@
+#wrapper{
+   width:960px; 
+   padding:0px;
+   background-color: white;
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
+
+}
+
+#header{
+    text-align:center;
+    padding:15px 0px;
+}
+
+#footer{
+    height: 50px;
+    width:   auto;
+    padding:20px;
+    text-align: right;
+}
+
+#deleteForm{
+	width: 400px;
+	margin: 0 auto;
+	padding:10px;
+}
+
+#content{
+    padding:20px;
+}
+
+body {
+   margin:0px;
+   padding:0px;
+   background-color: gray;
+}
+
+.buttons {
+	margin: 2px 0;
+	width: 100px;
+}
+
+.errorMsg {
+    font-size: 14px;
+    color: red;
+}

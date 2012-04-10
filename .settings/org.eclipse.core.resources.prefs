@@ -1,3 +1,7 @@
-#Wed Mar 28 22:30:02 EDT 2012
+#Mon Apr 09 19:41:59 EDT 2012
 eclipse.preferences.version=1
+encoding//application/controllers/home.php=UTF-8
+encoding//application/models/products.php=UTF-8
+encoding//application/views/delete.php=UTF-8
+encoding//application/views/home.php=UTF-8
 encoding/index.php=UTF-8
